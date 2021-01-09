@@ -2,6 +2,7 @@
 # https://github.com/m-rtijn/mpu6050
 
 from mpu6050 import mpu6050
+import time
 
 sensor = mpu6050(0x68)
 
@@ -34,6 +35,7 @@ def loop():
             gyro_angles['y'],
             gyro_angles['z']
         ))
+        time.sleep(dt)
 
 if __name__ == '__main__':     # Program entrance
 
