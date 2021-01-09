@@ -29,6 +29,7 @@ def loop():
 
     for d in coordinates:
         print('Mean {d}: {value}'.format(d = d, value = gyro_values[d].mean()))
+        print('Std {d}: {value}'.format(d = d, value = gyro_values[d].std()))
 
 
 if __name__ == '__main__':     # Program entrance
