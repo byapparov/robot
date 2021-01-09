@@ -8,7 +8,10 @@
 import MPU6050
 import time
 
-mpu = MPU6050.MPU6050()     # instantiate a MPU6050 class object
+mpu = MPU6050.MPU6050(
+    a_xGOff=16.292,
+    a_yGOff=1.77,
+    a_zGOff=-0.205)     # instantiate a MPU6050 class object
 accel = [0]*3               # define an arry to store accelerometer data
 gyro = [0]*3                # define an arry to store gyroscope data
 def setup():
