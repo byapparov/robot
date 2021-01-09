@@ -26,9 +26,9 @@ def single_measurement():
     ))
 
 gyro_angles = {
-    x: 0,
-    y: 0,
-    z: 0
+    "x": 0,
+    "y": 0,
+    "z": 0
 }
 def loop():
 
