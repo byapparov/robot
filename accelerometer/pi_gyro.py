@@ -14,7 +14,7 @@ gyro_angles = {
     'z': 0
 }
 
-gyro_correction = {'x': -16.25, 'y': -1.70}
+gyro_correction = {'x': 16.25, 'y': 1.70}
 
 def loop():
 
@@ -37,7 +37,7 @@ def loop():
 
         gyro_angles['x'] += gyro_values['x'] * dt
         gyro_angles['y'] += gyro_values['y'] * dt
-        gyro_angles['z'] += gyro_values['z'] * dt
+        gyro_angles['z'] += gyro_values ['z'] * dt
 
         print("total X: {0}, Y: {1}, Z: {2}".format(
             gyro_angles['x'],
