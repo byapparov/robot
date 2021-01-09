@@ -6,8 +6,7 @@ import time
 
 sensor = mpu6050(0x68)
 
-accelerometer_data = sensor.get_accel_data()
-gyro_data = sensor.get_gyro_data()
+
 
 gyro_angles = {
     'x': 0,
@@ -19,6 +18,8 @@ def loop():
 
     dt = 0.1
     while(True):
+        accelerometer_data = sensor.get_accel_data()
+        gyro_data = sensor.get_gyro_data()
 
         print("X: {0}, Y: {1}, Z: {2}".format(
             gyro_data['x'],
