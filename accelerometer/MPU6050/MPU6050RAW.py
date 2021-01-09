@@ -23,7 +23,7 @@ def single_measurement():
         gyro[0]/131.0,
         gyro[1]/131.0,
         gyro[2]/131.0
-    )
+    ))
 
 def loop():
 
