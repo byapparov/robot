@@ -25,9 +25,9 @@ def loop():
             gyro_data['z']
         ))
 
-        gyro_angles['x'] += gyro_data[0] * dt
-        gyro_angles['y'] += gyro_data[1] * dt
-        gyro_angles['z'] += gyro_data[2] * dt
+        gyro_angles['x'] += gyro_data['x'] * dt
+        gyro_angles['y'] += gyro_data['y'] * dt
+        gyro_angles['z'] += gyro_data['z'] * dt
 
         print("total X: {0}, Y: {1}, Z: {2}".format(
             gyro_angles['x'],
