@@ -34,3 +34,10 @@ def loop():
             gyro_angles['y'],
             gyro_angles['z']
         ))
+
+if __name__ == '__main__':     # Program entrance
+    
+    try:
+        loop()
+    except KeyboardInterrupt:  # Press ctrl-c to end the program.
+        pass
