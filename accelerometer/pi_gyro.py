@@ -9,7 +9,7 @@ accelerometer_data = sensor.get_accel_data()
 
 
 print("X: {0}, Y: {1}, Z: {2}".format(
-    accelerometer_data[0],
-    accelerometer_data[1],
-    accelerometer_data[2]
+    accelerometer_data['x'],
+    accelerometer_data['y'],
+    accelerometer_data['z']
 ))
