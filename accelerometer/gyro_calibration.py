@@ -18,7 +18,7 @@ def loop():
         'y': np.zeros(N),
         'z': np.zeros(N)
     }
-    dt = 0.01
+    dt = 0.001
     for i in range(N):
         accelerometer_data = sensor.get_accel_data()
         gyro_data = sensor.get_gyro_data()
