@@ -19,18 +19,18 @@ def loop():
     dt = 0.1
     while(True):
 
-    print("X: {0}, Y: {1}, Z: {2}".format(
-        gyro_data['x'],
-        gyro_data['y'],
-        gyro_data['z']
-    ))
+        print("X: {0}, Y: {1}, Z: {2}".format(
+            gyro_data['x'],
+            gyro_data['y'],
+            gyro_data['z']
+        ))
 
-    gyro_angles['x'] += gyro[0]/131.0 * dt
-    gyro_angles['y'] += gyro[1]/131.0 * dt
-    gyro_angles['z'] += gyro[2]/131.0 * dt
+        gyro_angles['x'] += gyro[0]/131.0 * dt
+        gyro_angles['y'] += gyro[1]/131.0 * dt
+        gyro_angles['z'] += gyro[2]/131.0 * dt
 
-    print("total X: {0}, Y: {1}, Z: {2}".format(
-        gyro_angles['x'],
-        gyro_angles['y'],
-        gyro_angles['z']
-    ))
+        print("total X: {0}, Y: {1}, Z: {2}".format(
+            gyro_angles['x'],
+            gyro_angles['y'],
+            gyro_angles['z']
+        ))
