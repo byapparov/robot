@@ -19,7 +19,7 @@ def single_measurement():
     gyro = mpu.get_rotation()
 
     print("Gyroscope reading:")
-    print("X: {0}, Y: {2}, Z: {3}".format(
+    print("X: {0}, Y: {1}, Z: {2}".format(
         gyro[0]/131.0,
         gyro[1]/131.0,
         gyro[2]/131.0
