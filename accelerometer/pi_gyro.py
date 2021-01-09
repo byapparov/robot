@@ -25,9 +25,9 @@ def loop():
             gyro_data['z']
         ))
 
-        gyro_angles['x'] += gyro[0]/131.0 * dt
-        gyro_angles['y'] += gyro[1]/131.0 * dt
-        gyro_angles['z'] += gyro[2]/131.0 * dt
+        gyro_angles['x'] += gyro_data[0] * dt
+        gyro_angles['y'] += gyro_data[1] * dt
+        gyro_angles['z'] += gyro_data[2] * dt
 
         print("total X: {0}, Y: {1}, Z: {2}".format(
             gyro_angles['x'],
@@ -36,7 +36,7 @@ def loop():
         ))
 
 if __name__ == '__main__':     # Program entrance
-    
+
     try:
         loop()
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
