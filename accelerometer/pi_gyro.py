@@ -14,7 +14,7 @@ gyro_angles = {
     'z': 0
 }
 
-gyro_correction = {'x': 16.25, 'y': 1.70}
+gyro_correction = {'x': 16.29, 'y': 1.77, 'z': -0.2345}
 
 def loop():
 
@@ -26,7 +26,7 @@ def loop():
         gyro_values = {
             'x': gyro_data['x'] + gyro_correction['x'],
             'y': gyro_data['y'] + gyro_correction['y'],
-            'z': gyro_data['z']
+            'z': gyro_data['z'] + gyro_correction['y']
         }
 
         print("X: {0}, Y: {1}, Z: {2}".format(
