@@ -14,9 +14,9 @@ def loop():
 
     coordinates = ['x', 'y', 'z']
     gyro_values = {
-        'x': np.zeros(shape = (1, N)),
-        'y': np.zeros(shape = (1, N)),
-        'z': np.zeros(shape = (1, N))
+        'x': np.zeros(N),
+        'y': np.zeros(N),
+        'z': np.zeros(N)
     }
     dt = 0.01
     for i in range(N):
