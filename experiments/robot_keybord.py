@@ -1,7 +1,7 @@
 import curses
 from gpiozero import Robot
 
-robot = Robot(left=(4, 14), right=(17, 18))
+robot = Robot(right=(4, 14), left=(17, 18))
 
 actions = {
     curses.KEY_UP:    robot.forward,
