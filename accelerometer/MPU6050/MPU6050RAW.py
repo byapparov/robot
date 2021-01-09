@@ -33,7 +33,11 @@ def loop():
         # print("a/g:%d\t%d\t%d\t%d\t%d\t%d "%(accel[0],accel[1],accel[2],gyro[0],gyro[1],gyro[2]))
         #print("a/g:%.2f g\t%.2f g\t%.2f g\t%.2f d/s\t%.2f d/s\t%.2f d/s"%(accel[0]/16384.0,accel[1]/16384.0,
         #    accel[2]/16384.0,gyro[0]/131.0,gyro[1]/131.0,gyro[2]/131.0))
-
+        print("X: {0}, Y: {1}, Z: {2}".format(
+            gyro[0]/131.0,
+            gyro[1]/131.0,
+            gyro[2]/131.0
+        ))
 
         time.sleep(0.1)
 
@@ -41,6 +45,6 @@ if __name__ == '__main__':     # Program entrance
     print("Program is starting ... ")
     setup()
     try:
-        single_measurement()
+        loop()
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         pass
