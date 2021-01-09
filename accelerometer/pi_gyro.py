@@ -14,6 +14,8 @@ gyro_angles = {
     'z': 0
 }
 
+gyro_correction = {'x': -16.25, 'y': -1.70}
+
 def loop():
 
     dt = 0.1
@@ -21,15 +23,21 @@ def loop():
         accelerometer_data = sensor.get_accel_data()
         gyro_data = sensor.get_gyro_data()
 
+        gyro_values = {
+            'x': gyro_data['x'] + gyro_correction['x'],
+            'y': gyro_data['y'] + gyro_correction['y'],
+            'z': gyro_data['z']
+        }
+
         print("X: {0}, Y: {1}, Z: {2}".format(
             gyro_data['x'],
             gyro_data['y'],
             gyro_data['z']
         ))
 
-        gyro_angles['x'] += gyro_data['x'] * dt
-        gyro_angles['y'] += gyro_data['y'] * dt
-        gyro_angles['z'] += gyro_data['z'] * dt
+        gyro_angles['x'] += gyro_values['x'] * dt
+        gyro_angles['y'] += gyro_values['y'] * dt
+        gyro_angles['z'] += gyro_values['z'] * dt
 
         print("total X: {0}, Y: {1}, Z: {2}".format(
             gyro_angles['x'],
