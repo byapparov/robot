@@ -16,11 +16,20 @@ class Gyroscope:
             'y': 1.77,
             'z': -0.205
         }
-        self.z_angle = 0.0
 
+        self.gyro_angles = {
+            'x': 0,
+            'y': 0,
+            'z': 0
+        }
 
     def reset(self):
-        self.z_angle = 0.0
+        self.gyro_angles = {
+            'x': 0,
+            'y': 0,
+            'z': 0
+        }
+
 
 
     def update(self, sample_time):
@@ -35,8 +44,8 @@ class Gyroscope:
             'z': gyro_data['z'] + self.gyro_correction['z']
         }
 
-        gyro_angles['x'] += gyro_values['x'] * dt
-        gyro_angles['y'] += gyro_values['y'] * dt
-        gyro_angles['z'] += gyro_values ['z'] * dt
+        self.gyro_angles['x'] += gyro_values['x'] * dt
+        self.gyro_angles['y'] += gyro_values['y'] * dt
+        self.gyro_angles['z'] += gyro_values ['z'] * dt
 
-        return gyro_angles['x']
+        return self.gyro_angles['x']
