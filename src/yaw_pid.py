@@ -12,6 +12,10 @@ class YawControl:
         self.last_error = 0.0
         self.integral = 0.0
 
+        self.kp = kp
+        self.ki = ki
+        self.kd = kd
+
     def reset(self):
         self.int_val = 0.0
 
