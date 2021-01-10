@@ -32,6 +32,9 @@ def turn(degrees):
             error,
             sample_time
         )
+
+        print("Control value: {c}".format(c = c))
+
         if c > 0:
             robot.left(c)
         else:
