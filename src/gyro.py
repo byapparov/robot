@@ -8,7 +8,7 @@ class Gyroscope:
 
 
         # This is our mpu6050 instance
-        self.sensor = mpu6050(0x68)
+        self.sensor = mpu6050(0x68, bus = 1)
 
         # These estimates come from summary output of
         # /accelerometer/gyro_calibration.py
