@@ -25,6 +25,7 @@ def turn(degrees):
 
         angles = gyroscope.update(sample_time)
 
+        print(angles)
         error = degrees - angles['z']
 
         c = yaw_control.step(
@@ -41,6 +42,6 @@ def turn(degrees):
 if __name__ == '__main__':     # Program entrance
 
     try:
-        turn(360)
+        turn(360.0)
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         pass
