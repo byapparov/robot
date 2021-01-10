@@ -22,7 +22,7 @@ class YawControl:
         derivative = (error - self.last_error) / sample_time;
 
         control = self.kp * error + self.ki * integral + self.kd * derivative;
-        if abs(control) < MIN_MOTOR_CONTROL
+        if abs(control) < MIN_MOTOR_CONTROL:
             control = math.copysign(control, MIN_MOTOR_CONTROL)
         self.last_error = error
 
