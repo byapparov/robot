@@ -17,7 +17,7 @@ class YawControl:
 
 
 
-    def step(error, sample_time):
+    def step(self, error, sample_time):
         self.integral = self.int_val + error * sample_time;
         derivative = (error - self.last_error) / sample_time;
 
