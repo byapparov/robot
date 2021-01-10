@@ -28,7 +28,7 @@ def turn(degrees):
         print(angles)
         error = degrees - angles['z']
 
-        print("Error value: {c}".format(c = c))
+        print("Error value: {e}".format(e = error))
 
         c = yaw_control.step(
             error,
