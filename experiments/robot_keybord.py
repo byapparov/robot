@@ -24,7 +24,7 @@ def main(window):
             curses.halfdelay(3)
             action = actions.get(key)
             if action is not None:
-                action()
+                action(0.1)
             next_key = key
             while next_key == key:
                 next_key = window.getch()
@@ -32,4 +32,3 @@ def main(window):
             robot.stop()
 
 curses.wrapper(main)
-
