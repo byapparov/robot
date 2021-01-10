@@ -10,7 +10,7 @@ robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
     kp = 0.75,
     ki = 0.00001,
-    kd = 0.1
+    kd = 0.2
 )
 gyroscope = Gyroscope()
 
