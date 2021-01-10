@@ -1,7 +1,7 @@
 import math
 
 # DC motor will not turn at all at low values
-MIN_MOTOR_CONTROL = 0.5
+MIN_MOTOR_CONTROL = 0.6
 # gpiozero library only supports values between 0 and 1 for movement
 MAX_MOTOR_CONTROL = 1
 

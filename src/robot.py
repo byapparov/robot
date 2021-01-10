@@ -8,9 +8,9 @@ from yaw_pid import YawControl
 
 robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
-    kp = 0.2,
+    kp = 0.1,
     ki = 0.00001,
-    kd = 0.005
+    kd = 0.002
 )
 gyroscope = Gyroscope()
 
@@ -19,7 +19,7 @@ def turn(degrees):
     error = degrees
 
     gyroscope.reset()
-    sample_time = 0.01
+    sample_time = 0.05
 
     while(abs(error) > 1):
 
@@ -51,5 +51,6 @@ if __name__ == '__main__':     # Program entrance
 
     try:
         turn(360.0)
+        turn(-360)
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         pass
