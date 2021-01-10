@@ -38,10 +38,6 @@ def turn(degrees):
         time.sleep(sample_time)
 
 
-def loop():
-    while(True):
-
-
 if __name__ == '__main__':     # Program entrance
 
     try:
