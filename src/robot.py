@@ -8,7 +8,7 @@ from yaw_pid import YawControl
 
 robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
-    kp = 1,
+    kp = .5,
     ki = 0,
     kd = .1
 )
