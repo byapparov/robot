@@ -7,11 +7,11 @@ class Gyroscope:
 
 
         # This is our mpu6050 instance
-        sensor = mpu6050(0x68)
+        self.sensor = mpu6050(0x68)
 
         # These estimates come from summary output of
         # /accelerometer/gyro_calibration.py
-        gyro_correction = {
+        self.gyro_correction = {
             'x': 16.292,
             'y': 1.77,
             'z': -0.205
@@ -27,12 +27,12 @@ class Gyroscope:
 
         dt = sample_time
 
-        gyro_data = sensor.get_gyro_data()
+        gyro_data = self.sensor.get_gyro_data()
 
         gyro_values = {
-            'x': gyro_data['x'] + gyro_correction['x'],
-            'y': gyro_data['y'] + gyro_correction['y'],
-            'z': gyro_data['z'] + gyro_correction['z']
+            'x': gyro_data['x'] + self.gyro_correction['x'],
+            'y': gyro_data['y'] + self.gyro_correction['y'],
+            'z': gyro_data['z'] + self.gyro_correction['z']
         }
 
         gyro_angles['x'] += gyro_values['x'] * dt
