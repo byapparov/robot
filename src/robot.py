@@ -19,7 +19,7 @@ def turn(degrees):
     error = degrees
 
     gyroscope.reset()
-    sample_time = 0.1
+    sample_time = 0.05
 
     while(abs(error) > 1):
 
