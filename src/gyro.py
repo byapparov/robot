@@ -48,4 +48,4 @@ class Gyroscope:
         self.gyro_angles['y'] += gyro_values['y'] * dt
         self.gyro_angles['z'] += gyro_values ['z'] * dt
 
-        return self.gyro_angles['x']
+        return self.gyro_angles
