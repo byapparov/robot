@@ -9,8 +9,8 @@ from yaw_pid import YawControl
 robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
     kp = 0.75,
-    ki = 0,
-    kd = 0
+    ki = 0.00001,
+    kd = 0.1
 )
 gyroscope = Gyroscope()
 
@@ -43,6 +43,9 @@ def turn(degrees):
             robot.right(-c)
         time.sleep(sample_time)
 
+def forward():
+
+    return False
 
 if __name__ == '__main__':     # Program entrance
 
