@@ -1,6 +1,6 @@
 from gpiozero import Robot
 import time
-import gyro
+from gyro import Gyroscope
 
 
 from yaw_pid import YawControl
