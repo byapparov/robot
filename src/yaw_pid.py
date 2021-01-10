@@ -1,4 +1,4 @@
-
+import math
 
 MIN_MOTOR_CONTROL = 0.5
 MAX_MOTOR_CONTROL = 1
@@ -31,7 +31,7 @@ class YawControl:
 
         if abs(control) > MAX_MOTOR_CONTROL:
             control = math.copysign(control, MAX_MOTOR_CONTROL)
-            
+
         self.last_error = error
 
         return(control)
