@@ -1,4 +1,4 @@
-import gpiozero
+from gpiozero import Robot
 import time
 import gyro
 
