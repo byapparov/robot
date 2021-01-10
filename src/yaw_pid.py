@@ -1,7 +1,7 @@
 
 
 MIN_MOTOR_CONTROL = 0.5
-
+MAX_MOTOR_CONTROL = 1
 
 
 class YawControl:
@@ -28,6 +28,10 @@ class YawControl:
         control = self.kp * error + self.ki * self.integral + self.kd * derivative;
         if abs(control) < MIN_MOTOR_CONTROL:
             control = math.copysign(control, MIN_MOTOR_CONTROL)
+
+        if abs(control) > MAX_MOTOR_CONTROL:
+            control = math.copysign(control, MAX_MOTOR_CONTROL)
+            
         self.last_error = error
 
         return(control)
