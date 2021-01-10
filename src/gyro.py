@@ -1,5 +1,6 @@
-
+import time
 from mpu6050 import mpu6050
+from timeit import default_timer as timer
 
 class Gyroscope:
 
@@ -22,6 +23,7 @@ class Gyroscope:
             'y': 0,
             'z': 0
         }
+        self.last_update = timer()
 
     def reset(self):
         self.gyro_angles = {
@@ -29,12 +31,11 @@ class Gyroscope:
             'y': 0,
             'z': 0
         }
+        self.last_update = timer()
 
 
 
     def update(self, sample_time):
-
-        dt = sample_time
 
         gyro_data = self.sensor.get_gyro_data()
 
@@ -44,8 +45,10 @@ class Gyroscope:
             'z': gyro_data['z'] + self.gyro_correction['z']
         }
 
+        dt = timer() - self.last_update
         self.gyro_angles['x'] += gyro_values['x'] * dt
         self.gyro_angles['y'] += gyro_values['y'] * dt
         self.gyro_angles['z'] += gyro_values ['z'] * dt
 
+        self.last_update = timer()
         return self.gyro_angles
