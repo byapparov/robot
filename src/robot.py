@@ -1,11 +1,7 @@
 from gpiozero import Robot
 import time
 from gyro import Gyroscope
-
-
 from yaw_pid import YawControl
-
-
 robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
     kp = 0.1,
