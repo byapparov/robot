@@ -8,9 +8,9 @@ from yaw_pid import YawControl
 
 robot = Robot(right=(4, 14), left=(17, 18))
 yaw_control = YawControl(
-    kp = 0.75,
+    kp = 0.5,
     ki = 0.00001,
-    kd = 0.001
+    kd = 0.005
 )
 gyroscope = Gyroscope()
 
