@@ -2,51 +2,51 @@ from gpiozero import Robot
 import time
 from gyro import Gyroscope
 from yaw_pid import YawControl
-robot = Robot(right=(4, 14), left=(17, 18))
-yaw_control = YawControl(
-    kp = 0.1,
-    ki = 0.00001,
-    kd = 0.002
-)
-gyroscope = Gyroscope()
+from ranging import UltrasonicSensor
 
-def turn(degrees):
+class Robot:
 
-    error = degrees
+    def __init__():
 
-    gyroscope.reset()
-    sample_time = 0.05
 
-    while(abs(error) > 1):
-
-        angles = gyroscope.update(sample_time)
-
-        print(angles)
-        error = degrees - angles['z']
-
-        print("Error value: {e}".format(e = error))
-
-        c = yaw_control.step(
-            error,
-            sample_time
+        self.gpio_robot = Robot(right=(4, 14), left=(17, 18))
+        self.yaw_control = YawControl(
+            kp = 0.1,
+            ki = 0.00001,
+            kd = 0.002
         )
+        self.gyroscope = Gyroscope()
+        self.untra_sonic_forward_sensor = UltrasonicSensor()
 
-        print("Control value: {c}".format(c = c))
+    def turn(degrees):
 
-        if c > 0:
-            robot.left(c)
-        else:
-            robot.right(-c)
-        time.sleep(sample_time)
+        error = degrees
 
-def forward():
+        gyroscope.reset()
+        sample_time = 0.05
 
-    return False
+        while(abs(error) > 1):
 
-if __name__ == '__main__':     # Program entrance
+            angles = self.gyroscope.update(sample_time)
 
-    try:
-        turn(360.0)
-        turn(-360)
-    except KeyboardInterrupt:  # Press ctrl-c to end the program.
-        pass
+            print(angles)
+            error = degrees - angles['z']
+
+            print("Error value: {e}".format(e = error))
+
+            c = yaw_control.step(
+                error,
+                sample_time
+            )
+
+            print("Control value: {c}".format(c = c))
+
+            if c > 0:
+                robot.left(c)
+            else:
+                robot.right(-c)
+            time.sleep(sample_time)
+
+    def forward_distance():
+
+        untra_sonic_forward_sensor.distance()
