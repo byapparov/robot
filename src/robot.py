@@ -4,7 +4,7 @@ from gyro import Gyroscope
 from yaw_pid import YawControl
 from ranging import UltrasonicSensor
 
-class Robot:
+class RobotCar:
 
     def __init__(self):
 
