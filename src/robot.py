@@ -16,7 +16,7 @@ class RobotCar:
             kd = 0.002
         )
         self.gyroscope = Gyroscope()
-        self.untra_sonic_forward_sensor = UltrasonicSensor()
+        self.distance_sensor = UltrasonicSensor()
 
     def turn(self, degrees):
 
@@ -48,5 +48,4 @@ class RobotCar:
             time.sleep(sample_time)
 
     def forward_distance(self):
-
-        untra_sonic_forward_sensor.distance()
+        self.distance_sensor.distance()
