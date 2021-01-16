@@ -24,15 +24,15 @@ def pulseIn(pin,level,timeOut): # obtain pulse time of a pin under timeOut
             return 0;
     pulseTime = (time.time() - t0)*1000000
     return pulseTime
-    
+
 def getSonar():     # get the measurement results of ultrasonic module,with unit: cm
-    GPIO.output(trigPin,GPIO.HIGH)      # make trigPin output 10us HIGH level 
+    GPIO.output(trigPin,GPIO.HIGH)      # make trigPin output 10us HIGH level
     time.sleep(0.00001)     # 10us
-    GPIO.output(trigPin,GPIO.LOW) # make trigPin output LOW level 
-    pingTime = pulseIn(echoPin,GPIO.HIGH,timeOut)   # read plus time of echoPin
-    distance = pingTime * 340.0 / 2.0 / 10000.0     # calculate distance with sound speed 340m/s 
+    GPIO.output(trigPin,GPIO.LOW) # make trigPin output LOW level
+    pingTime = pulseIn(echoPin,GPIO.HIGH, timeOut)   # read plus time of echoPin
+    distance = pingTime * 340.0 / 2.0 / 100.0     # calculate distance with sound speed 340m/s 
     return distance
-    
+
 def setup():
     GPIO.setmode(GPIO.BOARD)      # use PHYSICAL GPIO Numbering
     GPIO.setup(trigPin, GPIO.OUT)   # set trigPin to OUTPUT mode
@@ -43,7 +43,7 @@ def loop():
         distance = getSonar() # get distance
         print ("The distance is : %.2f cm"%(distance))
         time.sleep(1)
-        
+
 if __name__ == '__main__':     # Program entrance
     print ('Program is starting...')
     setup()
@@ -51,7 +51,3 @@ if __name__ == '__main__':     # Program entrance
         loop()
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         GPIO.cleanup()         # release GPIO resource
-
-
-    
-
