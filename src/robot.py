@@ -22,7 +22,7 @@ class RobotCar:
 
         error = degrees
 
-        gyroscope.reset()
+        self.gyroscope.reset()
         sample_time = 0.05
 
         while(abs(error) > 1):
@@ -42,9 +42,9 @@ class RobotCar:
             print("Control value: {c}".format(c = c))
 
             if c > 0:
-                robot.left(c)
+                self.gpio_robot.robot.left(c)
             else:
-                robot.right(-c)
+                self.gpio_robot.robot.right(-c)
             time.sleep(sample_time)
 
     def forward_distance(self):
