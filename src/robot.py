@@ -34,7 +34,7 @@ class RobotCar:
 
             print("Error value: {e}".format(e = error))
 
-            c = yaw_control.step(
+            c = self.yaw_control.step(
                 error,
                 sample_time
             )
