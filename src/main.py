@@ -1,13 +1,19 @@
 from robot import RobotCar
 
 
+def main():
+
+    robot = RobotCar()
+    robot.move(0.2, 0.5)
+
+
+
+
+
 if __name__ == '__main__':     # Program entrance
 
     try:
-        robot = RobotCar()
-
-
-        robot.move(0.5 , 0.5)
+        main()
 
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         pass
