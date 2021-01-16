@@ -21,8 +21,8 @@ class RobotCar:
 
     def move(self, x, y):
 
-        radians = atan2(y / x)
-        degrees = degrees(radians)
+        radians = math.atan2(y / x)
+        degrees = math.degrees(radians)
         self.turn(degrees)
 
 
