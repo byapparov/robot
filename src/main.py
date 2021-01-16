@@ -7,7 +7,7 @@ if __name__ == '__main__':     # Program entrance
         robot = RobotCar()
 
 
-        robot.move(1 , 1)
+        robot.move(0.5 , 0.5)
 
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         pass
