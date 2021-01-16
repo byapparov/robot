@@ -37,7 +37,7 @@ class RobotCar:
         self.gpio_robot.forward()
         time.sleep(time_to_sleep)
 
-        robot.stop()
+        self.gpio_robot.stop()
 
 
     def turn(self, degrees):
