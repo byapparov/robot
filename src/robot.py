@@ -35,7 +35,7 @@ class RobotCar:
         time_to_sleep = x / 0.2
 
         self.gpio_robot.forward()
-        sleep(time_to_sleep)
+        time.sleep(time_to_sleep)
 
         robot.stop()
 
