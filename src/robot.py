@@ -3,6 +3,7 @@ import time
 from gyro import Gyroscope
 from yaw_pid import YawControl
 from ranging import UltrasonicSensor
+import math
 
 class RobotCar:
 
@@ -17,6 +18,25 @@ class RobotCar:
         )
         self.gyroscope = Gyroscope()
         self.distance_sensor = UltrasonicSensor()
+
+    def move(self, x, y):
+
+        radians = atan2(y / x)
+        degrees = degrees(radians)
+        self.turn(degrees)
+
+
+
+    def forward(self, x):
+
+        robot_speed = 0.2
+        time_to_sleep = x / 0.2
+
+        self.gpio_robot.forward()
+        sleep(time_to_sleep)
+
+        robot.stop()
+
 
     def turn(self, degrees):
 
