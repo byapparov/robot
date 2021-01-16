@@ -1,4 +1,4 @@
-from robot import Robot
+from robot import RobotCar
 
 
 if __name__ == '__main__':     # Program entrance
