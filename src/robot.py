@@ -42,9 +42,9 @@ class RobotCar:
             print("Control value: {c}".format(c = c))
 
             if c > 0:
-                self.gpio_robot.robot.left(c)
+                self.gpio_robot.left(c)
             else:
-                self.gpio_robot.robot.right(-c)
+                self.gpio_robot.right(-c)
             time.sleep(sample_time)
 
     def forward_distance(self):
