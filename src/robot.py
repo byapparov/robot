@@ -6,7 +6,7 @@ from ranging import UltrasonicSensor
 
 class Robot:
 
-    def __init__():
+    def __init__(self):
 
 
         self.gpio_robot = Robot(right=(4, 14), left=(17, 18))
@@ -18,7 +18,7 @@ class Robot:
         self.gyroscope = Gyroscope()
         self.untra_sonic_forward_sensor = UltrasonicSensor()
 
-    def turn(degrees):
+    def turn(self, degrees):
 
         error = degrees
 
@@ -47,6 +47,6 @@ class Robot:
                 robot.right(-c)
             time.sleep(sample_time)
 
-    def forward_distance():
+    def forward_distance(self):
 
         untra_sonic_forward_sensor.distance()
