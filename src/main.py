@@ -4,7 +4,10 @@ from robot import RobotCar
 def main():
 
     robot = RobotCar()
-    robot.move(0.2, 0.5)
+    while True:
+
+        print("Distance: {d}m".format(d = robot.forward_distance())
+        sleep(1)
 
 
 
