@@ -1,5 +1,5 @@
 from robot import RobotCar
-
+from time import sleep
 
 def main():
 
