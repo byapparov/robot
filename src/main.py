@@ -6,7 +6,7 @@ def main():
     robot = RobotCar()
     while True:
 
-        print("Distance: {d}m".format(d = robot.forward_distance())
+        print("Distance: {d}m".format(d = robot.forward_distance()))
         sleep(1)
 
 
