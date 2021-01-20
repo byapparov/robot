@@ -30,7 +30,7 @@ def getSonar():     # get the measurement results of ultrasonic module,with unit
     time.sleep(0.00001)     # 10us
     GPIO.output(trigPin,GPIO.LOW) # make trigPin output LOW level
     pingTime = pulseIn(echoPin,GPIO.HIGH,timeOut)   # read plus time of echoPin
-    distance = pingTime * 340.0 / 2.0 / 100.0     # calculate distance with sound speed 340m/s
+    distance = pingTime * 340.0 / 2.0 / 10000.0     # calculate distance with sound speed 340m/s
     return distance
 
 def setup():
