@@ -70,4 +70,4 @@ class RobotCar:
             time.sleep(sample_time)
 
     def forward_distance(self):
-        self.distance_sensor.distance()
+        return self.distance_sensor.distance()
