@@ -17,7 +17,7 @@ class RobotCar:
             kd = 0.002
         )
         self.gyroscope = Gyroscope()
-        # self.distance_sensor = UltrasonicSensor()
+        self.distance_sensor = UltrasonicSensor()
 
     def move(self, x, y):
 
