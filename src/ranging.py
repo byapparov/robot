@@ -6,4 +6,4 @@ class UltrasonicSensor:
         self.sensor = DistanceSensor(echo_pin, trigger_pin)
 
     def distance(self):     # get the measurement results of ultrasonic module,with unit: cm
-        self.sensor.distance
+        return self.sensor.distance
