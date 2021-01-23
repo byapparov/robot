@@ -9,8 +9,8 @@ def main():
         forward_space = robot.forward_distance()
         if forward_space > 1:
             robot.move(0.5, 0)
-        elif forward_space > .2:
-            robot.move(forward_space - 0.25)
+        elif forward_space > 0.2:
+            robot.move(forward_space - 0.25, 0)
         else:
             robot.move(-0.1, 0.1)
 
