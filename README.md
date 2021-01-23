@@ -2,7 +2,7 @@
 2 Motor Robot with Raspberry Pi - Named Olie
 
 
-![Olie image](img/robot-front)
+![Olie image](img/robot-front.JPG)
 
 ## Controlling the Robot
 
