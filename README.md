@@ -17,14 +17,14 @@ For example to make a full turn clockwise:
   </tr>
   <tr>
     <td>
-    
+
     ```python
     # main.py
     from robot import RobotCar
     robot = RobotCar()
     robot.turn(-360)
     ```
-    <code>
+
     </td>
     <td>
       <img alt = "Turning in action" src="https://user-images.githubusercontent.com/1449277/104133150-9de34e80-5379-11eb-98ca-2cf45671be51.gif" />
