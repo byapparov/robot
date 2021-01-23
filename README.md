@@ -1,8 +1,7 @@
 # robot
 2 Motor Robot with Raspberry Pi - Named Olie
 
-
-![Olie image](img/robot-front.JPG)
+<img alt = "Olie Robot" src = "img/robot-front.JPG" width = "50%" />
 
 ## Controlling the Robot
 
