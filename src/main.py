@@ -6,11 +6,13 @@ def main():
     robot = RobotCar()
     while True:
 
-        print("Distance: {d}m".format(d = robot.forward_distance()))
-        sleep(1)
-
-
-
+        forward_space = robot.forward_distance()
+        if forward_space > 1:
+            robot.move(0.5, 0)
+        elif forward_space > .2:
+            robot.move(forward_space - 0.25)
+        else:
+            robot.move(-0.1, 0.1)
 
 
 if __name__ == '__main__':     # Program entrance
