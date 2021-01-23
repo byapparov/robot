@@ -2,51 +2,72 @@ from gpiozero import Robot
 import time
 from gyro import Gyroscope
 from yaw_pid import YawControl
-robot = Robot(right=(4, 14), left=(17, 18))
-yaw_control = YawControl(
-    kp = 0.1,
-    ki = 0.00001,
-    kd = 0.002
-)
-gyroscope = Gyroscope()
+from ranging import UltrasonicSensor
+import math
 
-def turn(degrees):
+class RobotCar:
 
-    error = degrees
+    def __init__(self):
 
-    gyroscope.reset()
-    sample_time = 0.05
 
-    while(abs(error) > 1):
-
-        angles = gyroscope.update(sample_time)
-
-        print(angles)
-        error = degrees - angles['z']
-
-        print("Error value: {e}".format(e = error))
-
-        c = yaw_control.step(
-            error,
-            sample_time
+        self.gpio_robot = Robot(right=(4, 14), left=(17, 18))
+        self.yaw_control = YawControl(
+            kp = 0.1,
+            ki = 0.00001,
+            kd = 0.002
         )
+        self.gyroscope = Gyroscope()
+        self.distance_sensor = UltrasonicSensor()
 
-        print("Control value: {c}".format(c = c))
+    def move(self, x, y):
 
-        if c > 0:
-            robot.left(c)
-        else:
-            robot.right(-c)
-        time.sleep(sample_time)
+        radians = math.atan2(y, x)
+        degrees = math.degrees(radians)
+        self.turn(degrees)
+        distance = math.sqrt(x ** 2 + y ** 2)
+        self.forward(distance)
 
-def forward():
 
-    return False
 
-if __name__ == '__main__':     # Program entrance
+    def forward(self, x):
 
-    try:
-        turn(360.0)
-        turn(-360)
-    except KeyboardInterrupt:  # Press ctrl-c to end the program.
-        pass
+        robot_speed = 0.2
+        time_to_sleep = x / 0.2
+
+        self.gpio_robot.forward()
+        time.sleep(time_to_sleep)
+
+        self.gpio_robot.stop()
+
+
+    def turn(self, degrees):
+
+        error = degrees
+
+        self.gyroscope.reset()
+        sample_time = 0.05
+
+        while(abs(error) > 1):
+
+            angles = self.gyroscope.update(sample_time)
+
+            print(angles)
+            error = degrees - angles['z']
+
+            print("Error value: {e}".format(e = error))
+
+            c = self.yaw_control.step(
+                error,
+                sample_time
+            )
+
+            print("Control value: {c}".format(c = c))
+
+            if c > 0:
+                self.gpio_robot.left(c)
+            else:
+                self.gpio_robot.right(-c)
+            time.sleep(sample_time)
+
+    def forward_distance(self):
+        return self.distance_sensor.distance()

@@ -2,8 +2,10 @@ import time
 from mpu6050 import mpu6050
 from timeit import default_timer as timer
 
-class Gyroscope:
 
+
+class Gyroscope:
+    """This class implements interface for MPU6050"""
     def __init__(self):
 
 
