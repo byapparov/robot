@@ -37,13 +37,20 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 
+start_time = time.time()
+
+fps_limit = 1
+
 while True:
     # Grab a single frame of video
     ret, frame = video_capture.read()
+    now_time = time.time()
+
+    if (int(now_time - start_time)) < fps_limit:
+        continue
 
     # Resize frame of video to 1/4 size for faster face recognition processing
-    small_frame = frame
-    # small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+    small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
 
     # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_small_frame = small_frame[:, :, ::-1]
@@ -98,6 +105,8 @@ while True:
     # Hit 'q' on the keyboard to quit!
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+    start_time = time.time()
 
 # Release handle to the webcam
 video_capture.release()
