@@ -10,7 +10,7 @@ class RobotCar:
     def __init__(self):
 
 
-        self.gpio_robot = Robot(right=(4, 14), left=(17, 18))
+        self.gpio_robot = Robot(right=(16, 14), left=(17, 18))
         self.yaw_control = YawControl(
             kp = 0.1,
             ki = 0.00001,
