@@ -47,7 +47,7 @@ class RobotCar:
         self.gyroscope.reset()
         sample_time = 0.05
 
-        while(abs(error) > 1):
+        while(abs(error) > 3):
 
             angles = self.gyroscope.update(sample_time)
 
