@@ -91,10 +91,10 @@ while True:
     # Display the results
     for (top, right, bottom, left), name in zip(face_locations, face_names):
         # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-        top *= 1 / optimal_scale
-        right *= 1 / optimal_scale
-        bottom *= 1 / optimal_scale
-        left *= 1 / optimal_scale
+        top /= optimal_scale
+        right /= optimal_scale
+        bottom /= optimal_scale
+        left /= optimal_scale
 
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
