@@ -42,7 +42,7 @@ start_time = time.time()
 
 fps_limit = 1
 
-optimal_scale = 0.5
+optimal_scale = 2
 
 while True:
     # Grab a single frame of video
@@ -53,7 +53,7 @@ while True:
         continue
 
     # Resize frame of video to 1/4 size for faster face recognition processing
-    small_frame = cv2.resize(frame, (0, 0), fx=optimal_scale, fy=optimal_scale)
+    small_frame = cv2.resize(frame, (0, 0), fx=1/optimal_scale, fy=1/optimal_scale)
 
     # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_small_frame = small_frame[:, :, ::-1]
@@ -91,10 +91,10 @@ while True:
     # Display the results
     for (top, right, bottom, left), name in zip(face_locations, face_names):
         # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-        top *= 2
-        right *= 2
-        bottom *= 2
-        left *= 2
+        top *= optimal_scale
+        right *= optimal_scale
+        bottom *= optimal_scale
+        left *= optimal_scale
 
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
